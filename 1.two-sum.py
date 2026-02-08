@@ -1,13 +1,13 @@
 # @leet start
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        hash={}
+        hash = {}
         for i in range(0,len(nums)):
-            hash[nums[i]]=i
-        for i in range(0,len(nums)):
-            temp = target -nums[i]
-            if temp in hash and hash[temp]!=i:
-                return [hash[temp],i]
-        return [hash[temp],i]
-        
+            num=nums[i]
+            if target - num in hash:
+                return [i, hash[target - num]]
+            hash[num]=i
+        return []
+
+
 # @leet end
