@@ -1,10 +1,12 @@
 # @leet start
 class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
-        group={}
+        hash={}
         for num in nums:
-            if num in group: return True
-            group[num]=num
+            if num in hash:
+                return True
+            hash[num]=0
         return False
+
         
 # @leet end
