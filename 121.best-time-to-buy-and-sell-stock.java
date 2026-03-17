@@ -1,17 +1,17 @@
 // @leet start
 class Solution {
+    private int left = 0;
+    private int right = 0;
+    private int answer = 0;
     public int maxProfit(int[] prices) {
-        Integer l = 0;
-        Integer r = 0;
-        Integer ans = 0;
-        while (r < prices.length) {
-            if (prices[l] > prices[r]) {
-                l = r;
+        while (right < prices.length) {
+            if (prices[left] > prices[right]) {
+                left = right;
             }
-            ans = Math.max(ans, prices[r] - prices[l]);
-            r++;
+            answer = Math.max(answer, prices[right] - prices[left]);
+            right++;
         }
-        return ans;
+        return answer;
     }
 }
 // @leet end

@@ -4,7 +4,7 @@ class Solution:
         hash = {}
         for i in range(0, len(nums)):
             num = nums[i]
-            if target - num in hash:
+            if target-num in hash:
                 return [hash.get(target - num), i]
             hash[num] = i
         return []

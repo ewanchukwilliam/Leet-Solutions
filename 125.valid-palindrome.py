@@ -1,14 +1,17 @@
 # @leet start
 class Solution:
     def isPalindrome(self, s: str) -> bool:
-        s="".join(char.lower() for char in s if char.isalnum())
+        s = s.replace("/[^0-9A-Za-z]/g", "").lower()
         l=0
-        r=len(s)-1
+        r= len(s)
         while l<r:
-            if s[r]!=s[l]:
+            if s[l] != s[r]:
                 return False
-            l+=1
-            r-=1
+            l++
+            r--
         return True
-        
+
+
+
+
 # @leet end
