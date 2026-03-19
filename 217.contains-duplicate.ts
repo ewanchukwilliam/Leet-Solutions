@@ -1,10 +1,10 @@
 // @leet start
 function containsDuplicate(nums: number[]): boolean {
-	let map =  new Set<number>();
-	return nums.some((num)=>{
-		if(map.has(num))return true;
-		map.add(num)
-		return false
-	})
-};
+	const set: Set<number> = new Set();
+	for (let i = 0; i < nums.length; i++) {
+		if (set.has(nums[i])) return true;
+		set.add(nums[i]);
+	}
+	return false;
+}
 // @leet end

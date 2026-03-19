@@ -1,14 +1,15 @@
 // @leet start
 class Solution {
-    public int maxSubArray(int[] nums) {
-		int temp=nums[0];
-		int answer=nums[0];
-		for (int i = 1; i < nums.length; i++) {
-			temp = Math.max(nums[i], nums[i] + temp);
-			answer = Math.max(answer, temp);
+	public int maxSubArray(int[] nums) {
+		int running =0;
+		int max = nums[0];
+		for (int i = 0; i < nums.length; i++) {
+			int num = nums[i];
+			running += num;
+			max = Math.max(max, running);
+			if (running < 0) running = 0;
 		}
-		return answer;
-        
-    }
+		return max;
+	}
 }
 // @leet end
