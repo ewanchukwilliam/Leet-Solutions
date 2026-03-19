@@ -5,13 +5,9 @@ function search(nums: number[], target: number): number {
 	while (left <= right) {
 		const middle = Math.floor((left + right) / 2);
 		if (nums[middle] === target) return middle;
-		if (nums[left] <= nums[middle]) {
-			if (target < nums[middle]) {
-				if (nums[middle] > target && target >= nums[left]) {
-					right = middle - 1;
-				} else {
-					left = middle + 1;
-				}
+		if (nums[left] <= nums[right]) {
+			if (nums[left] <= target && target < nums[middle]) {
+				right = middle - 1;
 			} else {
 				left = middle + 1;
 			}
@@ -25,5 +21,4 @@ function search(nums: number[], target: number): number {
 	}
 	return -1;
 }
-
 // @leet end

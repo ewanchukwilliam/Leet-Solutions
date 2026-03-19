@@ -10,7 +10,7 @@ class Solution {
 		int left = 0;
 		int right = nums.length - 1;
 		while (left <= right) {
-			int middle = (left + right) / 2;
+			int middle = (right + left) / 2;
 			if (nums[middle] == target)
 				return middle;
 			if (nums[left] <= nums[middle]) {
@@ -19,7 +19,6 @@ class Solution {
 				} else {
 					left = middle + 1;
 				}
-				// left sorted
 			} else {
 				if (nums[middle] < target && target <= nums[right]) {
 					left = middle + 1;

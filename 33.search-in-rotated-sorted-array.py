@@ -45,14 +45,12 @@ class Solution:
             middle = floor((left + right) / 2)
             if nums[middle] == target:
                 return middle
-            if nums[left] < nums[middle]:
-                # left sorted
+            if nums[left] <= nums[middle]:
                 if nums[left] <= target and target < nums[middle]:
                     right = middle - 1
                 else:
                     left = middle + 1
             else:
-                # right sorted
                 if nums[middle] < target and target <= nums[right]:
                     left = middle + 1
                 else:
@@ -61,4 +59,3 @@ class Solution:
 
 
 # @leet end
-
