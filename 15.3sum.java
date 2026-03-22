@@ -3,23 +3,22 @@
 class Solution {
 	public List<List<Integer>> threeSum(int[] nums) {
 		Arrays.sort(nums);
-		List<List<Integer>> answer = new ArrayList<>();
+		List<List<Integer>> ans = new ArrayList<>();
 		for (int i = 0; i < nums.length - 1; i++) {
-			int num = nums[i];
 			if (i > 0 && nums[i] == nums[i - 1])
 				continue;
 			int l = i + 1;
 			int r = nums.length - 1;
 			while (l < r) {
-				int sum = nums[l] + nums[r] + num;
+				int sum = nums[i] + nums[r] + nums[l];
 				if (sum == 0) {
-					answer.add(new ArrayList<>(List.of(nums[l], nums[r], num)));
-					l++;
+					ans.add(List.of(nums[i], nums[r], nums[l]));
 					r--;
-					while (l < r && nums[r] == nums[r + 1])
-						r--;
+					l++;
 					while (l < r && nums[l] == nums[l - 1])
 						l++;
+					while (l < r && nums[r] == nums[r + 1])
+						r--;
 				} else if (sum > 0) {
 					r--;
 				} else {
@@ -27,7 +26,7 @@ class Solution {
 				}
 			}
 		}
-		return answer;
+		return ans;
 	}
 }
 // @leet end
