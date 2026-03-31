@@ -1,12 +1,12 @@
 # @leet start
 class Solution:
     def twoSum(self, nums: List[int], target: int) -> List[int]:
-        hash = {}
-        for i in range(0, len(nums)):
-            num = nums[i]
-            if target-num in hash:
-                return [hash.get(target - num), i]
-            hash[num] = i
+        hashmap = {}
+        for i in range(len(nums)):
+            if target-nums[i] in hashmap:
+                return [ hashmap.get(target-nums[i]) , i]
+            hashmap[nums[i]]=i
+        
         return []
 
 
